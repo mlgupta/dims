@@ -1,0 +1,322 @@
+body {
+	background-color: #D4DDED;
+	margin: 0px;
+}
+
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+}
+
+th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight:normal;
+	background-color:#8CAAE0;
+}
+
+.th669966 {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight:bold;
+	background-color:#669966;
+}
+
+.trF7F7F7 {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight:normal;
+	background-color:#F7F7F7;
+}
+
+.trD7EFD7 {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight:normal;
+	background-color:#D7EFD7;
+}
+
+.componentStyle {
+	font-size: 11px;
+}
+
+.textRed {
+	color: #FF0000;
+}
+
+/* Back Ground Colours**********************************************/
+
+.bgColor_Lvl_1 {
+	background-color:#6E96D5;
+}
+
+.bgColor_Lvl_2 {
+	background-color:#A1BBE4;
+}
+
+.bgColor_Lvl_3 {
+	background-color:#D0DDF5;
+}
+
+.bgColor_Lvl_4 {
+  background-color: #DEE9FC;
+}
+
+.bgClrLvl_4{background-color:#DEE9FC;} 
+
+.bgClrLvl_F{BACKGROUND-COLOR: #FFFFFF}
+
+/* Border Colours**********************************************/
+
+.bdrClr_Lvl_1 {
+	border:1px solid #4D82D5;
+	font-size: 11px;
+}
+.bdrClr_Lvl_2 {
+	border:1px solid #6E96D5;
+	font-size: 11px;
+}
+
+.bdrTopClr_Lvl_2 {
+	border-top:1px solid #6E96D5;
+}
+
+.bdrBtmClr_Lvl_2 {
+	border-bottom:1px solid #6E96D5;
+}
+
+.bdrLftClr_Lvl_1 {
+	border-left:1px solid #4D82D5;
+}
+
+.borderClrLvl_2{BORDER: 1px solid #828282}
+
+/* Text Colours**********************************************/
+
+.tabText {
+  	FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #336633;
+}
+
+.textCopyRight {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	color: #666666;
+}
+
+.font13Bold {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.textHeading20bold {
+	font-family:  Arial, Verdana, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color: #333399;
+}
+
+.text11Normal {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color:#000066;
+}
+
+.text13Bold {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color:#000066;
+}
+
+.text9 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+/*********** Following classes are for Linked Text  ************/
+
+A.textLinkBold:link {
+	FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #333399;
+}
+
+A.textLinkBold:visited {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #333399;
+}
+
+A.textLinkBold:hover {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: underline;font-family: Arial, Verdana, Helvetica, sans-serif;color: #FF6600;
+}
+
+A.textLinkBold:active {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #333399;
+}
+
+A.topMenuLink:link {
+	FONT-WEIGHT: normal;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF;
+}
+
+A.topMenuLink:visited {
+		FONT-WEIGHT: normal;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF;
+}
+
+A.topMenuLink:hover {
+		FONT-WEIGHT: normal;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000066; 
+}
+
+A.topMenuLink:active {
+		FONT-WEIGHT: normal;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF;
+}
+
+A.recordLink:link {
+	FONT-WEIGHT: normal;FONT-SIZE: 10px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;
+}
+
+A.recordLink:visited {
+		FONT-WEIGHT: normal;FONT-SIZE: 10px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;
+}
+
+A.recordLink:hover {
+		FONT-WEIGHT: normal;FONT-SIZE: 10px;TEXT-DECORATION: underline;font-family: Verdana, Arial, Helvetica, sans-serif;color: #993399;
+}
+
+A.recordLink:active {
+		FONT-WEIGHT: normal;FONT-SIZE: 10px;TEXT-DECORATION: none;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;
+}
+
+A.tabTextLink:link {
+	FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #336633;
+}
+
+A.tabTextLink:visited {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #336633;
+}
+
+A.tabTextLink:hover {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #993399; 
+}
+
+A.tabTextLink:active {
+		FONT-WEIGHT: bold;FONT-SIZE: 11px;TEXT-DECORATION: none;font-family: Arial, Verdana, Helvetica, sans-serif;color: #336633;
+}
+
+/*****/
+.textMenuSeparator {
+		background-image:url(images/menu_separator.gif); 
+		height:12px; width:2px; 
+		float:right; margin-left:5px; margin-right:5px;
+}
+
+/*****/
+.buttons {
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; color: #000000; 
+	BACKGROUND-IMAGE: url(images/butt_tile.gif); BACKGROUND-REPEAT: repeat-x;
+}
+
+/* Following classes are for images in Navigation Bar ****************************************************************/
+
+.imgNavFirst{
+	background-image: url("images/nav_bar_1st.gif");
+  width:17px; height:17px;
+	float:left;
+  cursor: pointer; 
+  cursor: hand;    
+}
+
+.imgNavFirstDisable{
+	background-image: url("images/nav_bar_1st_disable.gif");
+  width:17px; height:17px;
+	float:left;
+}
+
+.imgNavPrev{
+	background-image: url("images/nav_bar_prev.gif");
+  width:17px; height:17px;
+	float:left;
+  cursor: pointer; 
+  cursor: hand;    
+}
+
+.imgNavPrevDisable{
+	background-image: url("images/nav_bar_prev_disable.gif");
+  width:17px; height:17px;
+	float:left;
+}
+
+.imgNavNext{
+  background-image: url("images/nav_bar_next.gif");
+  width:17px; height:17px;
+	float:left;
+  cursor: pointer; 
+  cursor: hand;    
+}
+
+.imgNavNextDisable{
+	background-image: url("images/nav_bar_next_disable.gif");
+  width:17px; height:17px;
+	float:left;
+}
+
+.imgNavLast{
+	background-image: url("images/nav_bar_last.gif");
+  width:17px; height:17px;
+	float:left;
+  cursor: pointer; 
+  cursor: hand;    
+}
+
+.imgNavLastDisable{
+	background-image: url("images/nav_bar_last_disable.gif");
+  width:17px; height:17px;
+	float:left;
+}
+
+/* Following classes are for other images  ****************************************************************/
+
+.imgStatusMsg{
+	background-image: url("images/message_blink.gif");
+  width:20px; height:15px;
+  margin-left:3px;
+}
+
+.imgGo{
+  background-image: url("images/tool_go.gif");
+  width:24px; height: 20px;
+  float:left;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.imgDtPickerOk {
+	background-image: url(images/butt_dtpicker_ok.gif); HEIGHT: 17px; MARGIN-LEFT: 3px; WIDTH: 16px;
+	background-repeat:no-repeat;	
+  cursor: pointer; 
+  cursor: hand;    
+}
+.imgDtPickerCancel {
+	background-image: url(images/butt_dtpicker_cancel.gif); HEIGHT: 17px; MARGIN-LEFT: 3px; WIDTH: 16px;
+	background-repeat:no-repeat;	
+  cursor: pointer; 
+  cursor: hand;  
+}
+.imgDtPickerCal {
+	background-image: url(images/butt_dtpicker_cal.gif); HEIGHT: 17px; MARGIN-LEFT: 3px; WIDTH: 15px;
+	background-repeat:no-repeat;	
+  cursor: pointer; 
+  cursor: hand;    
+}
+
+.imgData {
+	background-image: url("data_bg_tile200px.gif");
+  background-repeat:repeat-x;
+  background-position:bottom;
+}

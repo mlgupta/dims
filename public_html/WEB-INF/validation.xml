@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN" "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+<form-validation>
+  <global>
+  </global>
+  <formset>
+      <form name="loginForm">
+        <field property="userID" depends="required">
+          <arg0 key="txt.UserID">
+          </arg0>          
+        </field>
+        <field property="userPassword" depends="required">
+          <arg0 key="txt.Password">
+          </arg0>          
+        </field>
+    </form>
+  </formset> 
+  <formset>
+      <form name="departmentNewEditForm">
+        <field property="txtDepartmentId" depends="required">
+          <arg0 key="txt.DepartmentId">
+          </arg0>          
+        </field>
+        <field property="txtDepartmentName" depends="required">
+          <arg0 key="txt.DepartmentName">
+          </arg0>          
+        </field>
+    </form>
+  </formset> 
+  <formset>
+      <form name="userNewEditForm">
+        <field property="txtUserID" depends="required,minlength,maxlength">
+          <arg0 key="txt.UserID">
+          </arg0>
+          <msg name="minlength" key="errors.minlength">
+          </msg>
+          <msg name="maxlength" key="errors.maxlength">
+          </msg>
+          <arg1 name="minlength" key="${var:minlength}" resource="false">
+          </arg1>
+          <arg2 name="maxlength" key="${var:maxlength}" resource="false">
+          </arg2>          
+          <var>
+            <var-name>minlength</var-name>
+            <var-value>5</var-value>
+          </var>
+          <var>
+            <var-name>maxlength</var-name>
+            <var-value>20</var-value>
+          </var>
+        </field>
+        <field property="txtUserPassword" depends="required,minlength,twofields">
+            <msg name="minlength" key="errors.minlength">
+            </msg>
+            <arg0 key="txt.Password">
+            </arg0>
+            <arg1 key="${var:minlength}" name="minlength" resource="false">
+            </arg1>
+            <arg1 name="twofields" key="txt.ConfirmPassword">
+            </arg1>
+            <var>
+                <var-name>minlength</var-name>
+                <var-value>5</var-value>
+            </var>
+            <var>
+                <var-name>secondProperty</var-name>
+                <var-value>txtConfirmPassword</var-value>
+            </var>
+        </field>
+        <field property="txtConfirmPassword" depends="required,minlength">
+            <msg name="minlength" key="errors.minlength">
+            </msg>
+            <arg0 key="txt.ConfirmPassword">
+            </arg0>
+            <arg1 key="${var:minlength}" name="minlength" resource="false">
+            </arg1>
+            <var>
+                <var-name>minlength</var-name>
+                <var-value>5</var-value>
+            </var>
+        </field>
+        <field property="txtUserName" depends="required">
+          <arg0 key="txt.UserName">
+          </arg0>          
+        </field>
+    </form>
+  </formset>
+  <formset>
+    <form name="binderNewEditForm">
+      <field property="txtBinderPrefixName" depends="required">
+        <arg0 key="txt.BinderPrefixName">
+        </arg0>          
+      </field>
+    </form>
+
+  </formset> 
+  <formset>
+    <form name="roomNewEditForm">
+      <field property="txtRoomNumber" depends="required">
+        <arg0 key="txt.RoomNumber">
+        </arg0>          
+      </field>
+    </form>
+  </formset> 
+  <formset>
+      <form name="locationNewEditForm">
+        <field property="txtLocationID" depends="required">
+          <arg0 key="txt.LocationID">
+          </arg0>          
+        </field>
+        <field property="txtLocationCity" depends="required">
+          <arg0 key="txt.LocationCity">
+          </arg0>          
+        </field> 
+        <field property="txtLocationState" depends="required">
+          <arg0 key="txt.LocationState">
+          </arg0>          
+        </field> 
+    </form>
+  </formset>
+  <formset>
+    <form name="rackNewEditForm">
+      <field property="txtRackNumber" depends="required">
+        <arg0 key="txt.RackNumber">
+        </arg0>          
+      </field>
+      <field property="txtNumberOfShelves" depends="required">
+        <arg0 key="txt.NumberOfShelves">
+        </arg0>          
+      </field>
+    </form>
+  </formset> 
+</form-validation>

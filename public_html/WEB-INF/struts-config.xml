@@ -1,0 +1,347 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <data-sources>
+    <data-source key="DIMS" type="org.apache.commons.dbcp.BasicDataSource">
+      <set-property property="driverClassName" value="org.postgresql.Driver"/>
+      <set-property property="url" value="jdbc:postgresql://192.168.0.1/dims"/>
+      <set-property property="username" value="netspider"/>
+      <set-property property="password" value="netspider"/>
+      <set-property property="maxActive" value="10"/>
+      <set-property property="maxWait" value="5000"/>
+      <set-property property="defaultAutoCommit" value="true"/>
+      <set-property property="defaultReadOnly" value="false"/>
+    </data-source> 
+  </data-sources>
+  
+  <form-beans>
+    <!-- Login Form -->
+    <form-bean name="loginForm" type="dims.web.actionforms.loginout.LoginForm" />
+    <form-bean name="departmentListForm" type="dims.web.actionforms.department.DepartmentListForm" />
+    <form-bean name="departmentNewEditForm" type="dims.web.actionforms.department.DepartmentNewEditForm" />
+    <form-bean name="userListForm" type="dims.web.actionforms.users.UserListForm" />
+    <form-bean name="userNewEditForm" type="dims.web.actionforms.users.UserNewEditForm" />
+    <form-bean name="locationListForm" type="dims.web.actionforms.location.LocationListForm" />
+    <form-bean name="locationNewEditForm" type="dims.web.actionforms.location.LocationNewEditForm" />
+    <form-bean name="binderListForm" type="dims.web.actionforms.binders.BinderListForm" />
+    <form-bean name="binderNewEditForm" type="dims.web.actionforms.binders.BinderNewEditForm" />
+    <form-bean name="roomListForm" type="dims.web.actionforms.room.RoomListForm" />
+    <form-bean name="roomNewEditForm" type="dims.web.actionforms.room.RoomNewEditForm" />
+    <form-bean name="rackListForm" type="dims.web.actionforms.rack.RackListForm" />
+    <form-bean name="rackNewEditForm" type="dims.web.actionforms.rack.RackNewEditForm" />
+    <form-bean name="preferenceForm" type="dims.web.actionforms.preference.PreferenceForm" />
+    <form-bean name="batchListForm" type="dims.web.actionforms.batch.BatchListForm" />
+    <form-bean name="batchNewEditForm" type="dims.web.actionforms.batch.BatchNewEditForm" />
+    <form-bean name="batchProcessListForm" type="dims.web.actionforms.process.BatchProcessListForm" />
+    <form-bean name="binderProcessListForm" type="dims.web.actionforms.process.BinderProcessListForm" />
+    <form-bean name="recordListForm" type="dims.web.actionforms.process.RecordListForm" />
+  </form-beans>
+  
+  <global-forwards>
+    <forward name="loginErr" path="/loginB4Action.do" />
+    <forward name="newDeptErr" path="/departmentListAction.do" />
+    <forward name="editDeptErr" path="/departmentListAction.do" />
+    <forward name="newLocationErr" path="/locationListAction.do" />
+    <forward name="editLocationErr" path="/locationListAction.do" />
+    <forward name="newUserErr" path="/userListAction.do" />
+    <forward name="editUserErr" path="/userListAction.do" />
+    <forward name="newBinderErr" path="/binderListAction.do" />
+    <forward name="editBinderErr" path="/binderListAction.do" />
+    <forward name="newRoomErr" path="/roomListAction.do" />
+    <forward name="editRoomErr" path="/roomListAction.do" />
+    <forward name="newRackErr" path="/rackListAction.do" />
+    <forward name="editRackErr" path="/rackListAction.do" />
+    <forward name="newBatchErr" path="/batchListAction.do" />
+    <forward name="editBatchErr" path="/batchListAction.do" />
+    <forward name="editBatchProcessErr" path="/batchProcessListAction.do" />
+    <forward name="editSubmitProcessErr" path="/batchListAction.do" />
+    <forward name="editBinderProcessErr" path="/batchProcessListAction.do" />
+  </global-forwards>
+  
+  <action-mappings>
+    <!--LoginB4Action-->
+    <action name="loginForm" path="/loginB4Action" validate="false" input="loginErr" type="dims.web.actions.loginout.LoginB4Action" scope="request">
+      <forward name="success" path="/login.jsp"/>
+    </action>
+
+    <!-- Login Action -->
+    <action name="loginForm" path="/loginAction" validate="true" scope="request" type="dims.web.actions.loginout.LoginAction" unknown="false">
+      <forward name="success" path="/webtop.jsp" />
+      <forward name="failure" path="/loginB4Action.do" />
+    </action>
+
+    <!-- Logout Action -->
+    <action path="/logoutAction" scope="request" type="dims.web.actions.loginout.LogoutAction" unknown="false">
+      <forward name="success" path="/logout.jsp" />
+    </action>
+
+    <!-- DepartmentListAction -->
+    <action name="departmentListForm" path="/departmentListAction" input="newDeptErr" scope="request" type="dims.web.actions.department.DepartmentListAction" unknown="false">
+      <forward name="success" path="/department_list.jsp" />
+    </action>
+
+    <!-- NewDepartmentB4Action -->
+    <action name="departmentNewEditForm" path="/newDepartmentB4Action" scope="request" type="dims.web.actions.department.NewDepartmentB4Action" unknown="false" validate="false">
+      <forward name="success" path="/department_new.jsp" />
+    </action>
+
+    <!-- NewDepartmentAction -->
+    <action name="departmentNewEditForm" path="/newDepartmentAction" input="newDeptErr" scope="request" type="dims.web.actions.department.NewDepartmentAction" unknown="false" validate="true">
+      <forward name="success" path="/departmentListAction.do" />
+    </action>
+
+    <!-- EditDepartmentB4Action -->
+    <action name="departmentListForm" path="/editDepartmentB4Action" scope="request" type="dims.web.actions.department.EditDepartmentB4Action" unknown="false">
+      <forward name="success" path="/department_edit.jsp" />
+    </action>
+
+    <!-- EditDepartmentAction -->
+    <action name="departmentNewEditForm" path="/editDepartmentAction" input="editDeptErr" scope="request" type="dims.web.actions.department.EditDepartmentAction" unknown="false" validate="true">
+      <forward name="success" path="/departmentListAction.do" />
+    </action>
+
+    <!-- DeleteDepartmentAction -->
+    <action name="departmentListForm" path="/deleteDepartmentAction" scope="request" type="dims.web.actions.department.DeleteDepartmentAction" unknown="false">
+      <forward name="success" path="/departmentListAction.do" />
+    </action>
+
+    <!-- LocationListAction -->
+    <action name="locationListForm" path="/locationListAction" input="newLocationErr" scope="request" type="dims.web.actions.location.LocationListAction" unknown="false">
+      <forward name="success" path="/location_list.jsp" />
+    </action>
+
+    <!-- NewLocationB4Action -->
+    <action name="locationNewEditForm" path="/newLocationB4Action" scope="request" type="dims.web.actions.location.NewLocationB4Action" unknown="false" validate="false">
+      <forward name="success" path="/location_new.jsp" />
+    </action>
+    
+    <!-- NewLocationAction -->
+    <action name="locationNewEditForm" path="/newLocationAction" input="newLocationErr" scope="request" type="dims.web.actions.location.NewLocationAction" unknown="false" validate="true">
+      <forward name="success" path="/locationListAction.do" />
+    </action>
+
+    <!-- EditLocationB4Action -->
+    <action name="locationListForm" path="/editLocationB4Action" scope="request" type="dims.web.actions.location.EditLocationB4Action" unknown="false">
+      <forward name="success" path="/location_edit.jsp" />
+    </action>
+    
+    <!-- EditLocationAction -->
+    <action name="locationNewEditForm" path="/editLocationAction" input="editLocationErr" scope="request" type="dims.web.actions.location.EditLocationAction" unknown="false" validate="true">
+      <forward name="success" path="/locationListAction.do" />
+    </action>
+
+    <!-- DeleteLocationAction -->
+    <action name="locationListForm" path="/deleteLocationAction" input="editLocationErr" scope="request" type="dims.web.actions.location.DeleteLocationAction" unknown="false">
+      <forward name="success" path="/locationListAction.do" />
+    </action>
+    
+    <!-- UserListAction -->
+    <action name="userListForm" path="/userListAction" scope="request" type="dims.web.actions.users.UserListAction" unknown="false">
+      <forward name="success" path="/user_list.jsp" />
+    </action>
+
+    <!-- NewUserB4Action -->
+    <action name="userNewEditForm" path="/newUserB4Action" scope="request" type="dims.web.actions.users.NewUserB4Action" unknown="false" validate="false">
+      <forward name="success" path="/user_new.jsp" />
+    </action>
+    
+    <!-- NewUserAction -->
+    <action name="userNewEditForm" path="/newUserAction" scope="request" input="newUserErr" type="dims.web.actions.users.NewUserAction" unknown="false" validate="true">
+      <forward name="success" path="/userListAction.do" />
+    </action>
+    
+    <!-- EditUserB4Action -->
+    <action name="userListForm" path="/editUserB4Action" scope="request" type="dims.web.actions.users.EditUserB4Action" unknown="false">
+      <forward name="success" path="/user_edit.jsp" />
+    </action>
+    
+    <!-- EditUserAction -->
+    <action name="userNewEditForm" path="/editUserAction" input="editUserErr" scope="request" type="dims.web.actions.users.EditUserAction" unknown="false" validate="true">
+      <forward name="success" path="/userListAction.do" />
+    </action>
+
+    <!-- DeleteUserAction -->
+    <action name="userListForm" path="/deleteUserAction" scope="request" type="dims.web.actions.users.DeleteUserAction" unknown="false">
+      <forward name="success" path="/userListAction.do" />
+    </action>
+
+    <!-- BinderListAction -->
+    <action name="binderListForm" path="/binderListAction" input="newBinderErr" scope="request" type="dims.web.actions.binders.BinderListAction" unknown="false">
+      <forward name="success" path="/binder_prefix_list.jsp" />
+    </action>
+
+    <!-- NewBinderB4Action -->
+    <action name="binderNewEditForm" path="/newBinderB4Action" scope="request" type="dims.web.actions.binders.NewBinderB4Action" unknown="false" validate="false">
+      <forward name="success" path="/binder_prefix_new.jsp" />
+    </action>
+    
+    <!-- NewBinderAction -->
+    <action name="binderNewEditForm" path="/newBinderAction" input="newBinderErr" scope="request" type="dims.web.actions.binders.NewBinderAction" unknown="false" validate="true">
+      <forward name="success" path="/binderListAction.do" />
+    </action>
+
+    <!-- EditBinderB4Action -->
+    <action name="binderListForm" path="/editBinderB4Action" scope="request" type="dims.web.actions.binders.EditBinderB4Action" unknown="false">
+      <forward name="success" path="/binder_prefix_edit.jsp" />
+    </action>
+    
+    <!-- EditBinderAction -->
+    <action name="binderNewEditForm" path="/editBinderAction" input="editBinderErr" scope="request" type="dims.web.actions.binders.EditBinderAction" unknown="false" validate="true">
+      <forward name="success" path="/binderListAction.do" />
+    </action>
+
+    <!-- DeleteBinderAction -->
+    <action name="binderListForm" path="/deleteBinderAction" scope="request" type="dims.web.actions.binders.DeleteBinderAction" unknown="false">
+      <forward name="success" path="/binderListAction.do" />
+    </action>
+
+    <!-- RoomListAction -->
+    <action name="roomListForm" path="/roomListAction" input="newRoomErr" scope="request" type="dims.web.actions.room.RoomListAction" unknown="false">
+      <forward name="success" path="/room_list.jsp" />
+    </action>
+
+    <!-- NewRoomB4Action -->
+    <action name="roomNewEditForm" path="/newRoomB4Action" scope="request" type="dims.web.actions.room.NewRoomB4Action" unknown="false" validate="false">
+      <forward name="success" path="/room_new.jsp" />
+    </action>
+    
+    <!-- NewRoomAction -->
+    <action name="roomNewEditForm" path="/newRoomAction" input="newRoomErr" scope="request" type="dims.web.actions.room.NewRoomAction" unknown="false" validate="true">
+      <forward name="success" path="/roomListAction.do" />
+    </action>
+
+    <!-- EditRoomB4Action -->
+    <action name="roomListForm" path="/editRoomB4Action" scope="request" type="dims.web.actions.room.EditRoomB4Action" unknown="false">
+      <forward name="success" path="/room_edit.jsp" />
+    </action>
+    
+    <!-- EditRoomAction -->
+    <action name="roomNewEditForm" path="/editRoomAction" input="editRoomErr" scope="request" type="dims.web.actions.room.EditRoomAction" unknown="false" validate="true">
+      <forward name="success" path="/roomListAction.do" />
+    </action>
+
+    <!-- DeleteRoomAction -->
+    <action name="roomListForm" path="/deleteRoomAction" scope="request" type="dims.web.actions.room.DeleteRoomAction" unknown="false">
+      <forward name="success" path="/roomListAction.do" />
+    </action>
+
+    <!-- RackListAction -->
+    <action name="rackListForm" path="/rackListAction" input="newRackErr" scope="request" type="dims.web.actions.rack.RackListAction" unknown="false">
+      <forward name="success" path="/rack_list.jsp" />
+    </action>
+
+    <!-- RoomList4LocationAction -->
+    <action path="/roomList4LocationAction" scope="request" type="dims.web.actions.rack.RoomList4LocationAction" unknown="false">
+    </action>
+
+    <!-- NewRackB4Action -->
+    <action name="rackNewEditForm" path="/newRackB4Action" scope="request" type="dims.web.actions.rack.NewRackB4Action" unknown="false" validate="false">
+      <forward name="success" path="/rack_new.jsp" />
+    </action>
+    
+    <!-- NewRackAction -->
+    <action name="rackNewEditForm" path="/newRackAction" input="newRackErr" scope="request" type="dims.web.actions.rack.NewRackAction" unknown="false" validate="true">
+      <forward name="success" path="/rackListAction.do" />
+    </action>
+
+    <!-- EditRackB4Action -->
+    <action name="rackListForm" path="/editRackB4Action" scope="request" type="dims.web.actions.rack.EditRackB4Action" unknown="false">
+      <forward name="success" path="/rack_edit.jsp" />
+    </action>
+    
+    <!-- EditRackAction -->
+    <action name="rackNewEditForm" path="/editRackAction" input="editRackErr" scope="request" type="dims.web.actions.rack.EditRackAction" unknown="false" validate="true">
+      <forward name="success" path="/rackListAction.do" />
+    </action>
+
+    <!-- DeleteRackAction -->
+    <action name="rackListForm" path="/deleteRackAction" scope="request" type="dims.web.actions.rack.DeleteRackAction" unknown="false">
+      <forward name="success" path="/rackListAction.do" />
+    </action>
+
+    <!-- PreferenceB4Action -->
+    <action name="preferenceForm" path="/preferenceB4Action" scope="request" type="dims.web.actions.preference.PreferenceB4Action" unknown="false">
+      <forward name="success" path="/preference.jsp" />
+    </action>
+
+    <!-- PreferenceAction -->
+    <action name="preferenceForm" path="/preferenceAction" scope="request" type="dims.web.actions.preference.PreferenceAction" unknown="false">
+      <forward name="success" path="/preferenceB4Action.do" />
+    </action>
+
+    <!-- BatchListAction -->
+    <action name="batchListForm" path="/batchListAction" input="newBatchErr" scope="request" type="dims.web.actions.batch.BatchListAction" unknown="false">
+      <forward name="success" path="/batch_list.jsp" />
+    </action>
+
+    <!-- NewBatchB4Action -->
+    <action name="batchNewEditForm" path="/newBatchB4Action" scope="request" type="dims.web.actions.batch.NewBatchB4Action" unknown="false" validate="false">
+      <forward name="success" path="/batch_new.jsp" />
+    </action>
+    
+    <!-- NewBatchAction -->
+    <action name="batchNewEditForm" path="/newBatchAction" input="newBatchErr" scope="request" type="dims.web.actions.batch.NewBatchAction" unknown="false" validate="false">
+      <forward name="success" path="/batchListAction.do" />
+    </action>
+
+    <!-- EditBatchB4Action -->
+    <action name="batchListForm" path="/editBatchB4Action" scope="request" type="dims.web.actions.batch.EditBatchB4Action" unknown="false">
+      <forward name="success" path="/batch_edit.jsp" />
+    </action>
+    
+    <!-- EditBatchAction -->
+    <action name="batchNewEditForm" path="/editBatchAction" input="editBatchErr" scope="request" type="dims.web.actions.batch.EditBatchAction" unknown="false" validate="false">
+      <forward name="success" path="/batchListAction.do" />
+    </action>
+
+    <!-- DeleteBatchAction -->
+    <action name="batchListForm" path="/deleteBatchAction" scope="request" type="dims.web.actions.batch.DeleteBatchAction" unknown="false">
+      <forward name="success" path="/batchListAction.do" />
+    </action>
+    
+    <!-- SubmitToBatchProcessAction -->
+    <action name="batchListForm" path="/submitToBatchProcessAction" input="editSubmitProcessErr" scope="request" type="dims.web.actions.batch.SubmitToBatchProcessAction" unknown="false">
+      <forward name="success" path="/batchListAction.do" />
+    </action>
+
+    <!-- BatchProcessListAction -->
+    <action name="batchProcessListForm" path="/batchProcessListAction" scope="request" type="dims.web.actions.process.BatchProcessListAction" unknown="false">
+      <forward name="success" path="/batch_process_list.jsp" />
+    </action>
+
+    <!-- EditBatchProcessB4Action -->
+    <action name="batchProcessListForm" path="/editBatchProcessB4Action" input="editBinderProcessErr" scope="request" type="dims.web.actions.process.EditBatchProcessB4Action" unknown="false">
+      <forward name="success" path="/process_edit.jsp" />    
+    </action>
+
+    <!-- EditBatchProcessAction -->
+    <action name="binderProcessListForm" path="/editBatchProcessAction" input="editBinderProcessErr" scope="request" type="dims.web.actions.process.EditBatchProcessAction" unknown="false">
+      <forward name="success" path="/batchProcessListAction.do" />
+    </action>
+
+    <!-- RecordListAction -->
+    <action name="recordListForm" path="/recordListAction" scope="request" type="dims.web.actions.process.RecordListAction" unknown="false">
+      <forward name="success" path="/record.jsp" />
+    </action>
+
+    <!-- EditRecordAction -->
+    <action name="recordListForm" path="/editRecordAction" scope="request" type="dims.web.actions.process.EditRecordAction" unknown="false">
+      <forward name="success" path="/recordListAction.do" />
+    </action>
+
+  </action-mappings>
+  
+  <controller>
+    <!-- The "input" parameter on "action" elements is the name of a
+         local or global "forward" rather than a module-relative path -->
+    <set-property property="inputForward" value="true"/>
+    <set-property property="maxFileSize" value="100M"/>
+  </controller>
+  
+  <message-resources parameter="resources.ApplicationResources"/>
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>
